@@ -1,4 +1,4 @@
-package com.example.ode2025;
+package HelloTemplate;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

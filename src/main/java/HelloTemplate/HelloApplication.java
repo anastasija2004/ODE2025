@@ -1,4 +1,4 @@
-package com.example.ode2025;
+package HelloTemplate;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
