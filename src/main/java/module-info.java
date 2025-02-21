@@ -1,4 +1,4 @@
-module com.example.ode2025 {
+module HelloTemplate {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -11,6 +11,8 @@ module com.example.ode2025 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.example.ode2025 to javafx.fxml;
-    exports com.example.ode2025;
+    requires javafx.swing; // For first software test
+
+    opens HelloTemplate to javafx.fxml;
+    exports HelloTemplate;
 }
