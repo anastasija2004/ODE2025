@@ -51,10 +51,10 @@ Must haves (Genügend)
   
 Should haves (Befriedigend)
 - Berechnen und Anzeige von Spielstatistiken
-- Spiel merkt sich Namen
-- Gewinne, Verluste, Unentschieden
+  - Spiel merkt sich Namen
+  - Gewinne, Verluste, Unentschieden
 - SpielerInnen können ein eigenes Zeichen auswählen statt X und O
-- Diese Einstellung wird in einer Datei abgespeichert
+  - Diese Einstellung wird in einer Datei abgespeichert
   
 Nice to haves (Gut)
 - Animationen für das Setzen von X und O, z.B. FadeIn
@@ -63,7 +63,7 @@ Nice to haves (Gut)
   
 Overkill (Sehr gut)
 - Implementierung eines Lobby Modus
-- SpielerInnen müssen nicht mehr die genaue IP-Adresse der jeweils anderen
-  Person wissen, sondern können sich zu einer Lobby-IP verbinden, um so
-  Gegenspieler zu finden
+  - SpielerInnen müssen nicht mehr die genaue IP-Adresse der jeweils anderen
+    Person wissen, sondern können sich zu einer Lobby-IP verbinden, um so
+    Gegenspieler zu finden
 - Spielen gegen KI
