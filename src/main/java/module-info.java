@@ -1,4 +1,4 @@
-module HelloTemplate {
+module tictactoe {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -13,6 +13,8 @@ module HelloTemplate {
 
     requires javafx.swing; // For first software test
 
-    opens HelloTemplate to javafx.fxml;
-    exports HelloTemplate;
+    opens client to javafx.fxml;
+    opens server to javafx.fxml;
+    exports client;
+    exports server;
 }
