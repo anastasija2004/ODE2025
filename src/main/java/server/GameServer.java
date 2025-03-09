@@ -3,8 +3,9 @@ package server;
 // import game.Player;
 // import game.TicTacToe;
 
-import java.io.*;
-import java.net.*;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
  * This is the server class for the TicTacToe game.
@@ -20,45 +21,42 @@ import java.net.*;
 public class GameServer {
     private static final int PORT = 12345;
     private ServerSocket serverSocket;
-    // private TicTacToe game;
-    // private Player player1;
-    // private Player player2;
-    // private PrintWriter player1Out;
-    // private PrintWriter player2Out;
+    private volatile boolean running = false; // Add a flag to track server state
 
     public GameServer() {
         try {
             serverSocket = new ServerSocket(PORT);
-            System.out.println("Server gestartet, wartend auf Verbindungen...");
+            System.out.println("Server started, waiting for connections...");
+            running = true;
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void startServer() {
-        try {
-            Socket player1Socket = serverSocket.accept();
-            System.out.println("Spieler 1 verbunden");
-            Socket player2Socket = serverSocket.accept();
-            System.out.println("Spieler 2 verbunden");
-            // player1Out = new PrintWriter(player1Socket.getOutputStream(), true);
-            // player2Out = new PrintWriter(player2Socket.getOutputStream(), true);
-            // player1 = new Player(player1Socket, player1Out);
-            // player2 = new Player(player2Socket, player2Out);
-            // game = new TicTacToe(player1, player2);
-            // game.startGame();
+        new Thread(() -> {  // Run server in a separate thread
+            try {
+                while (running) {
+                    Socket player1Socket = serverSocket.accept();
+                    System.out.println("Player 1 connected");
 
-            //timeout
-            //serverSocket.setSoTimeout(10000);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                    Socket player2Socket = serverSocket.accept();
+                    System.out.println("Player 2 connected");
+                }
+            } catch (IOException e) {
+                if (running) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     public void stopServer() {
+        running = false; // Set flag to false
         try {
-            serverSocket.close();
+            if (serverSocket != null && !serverSocket.isClosed()) {
+                serverSocket.close(); // This will unblock accept()
+            }
             System.out.println("Server stopped");
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,12 +64,11 @@ public class GameServer {
     }
 
     public boolean isRunning() {
-        return !serverSocket.isClosed();
+        return running;
     }
 
     public static void main(String[] args) {
         GameServer server = new GameServer();
         server.startServer();
     }
-
 }
