@@ -181,6 +181,10 @@ public class ClientController {
         }
         statusText.setText("New game started!");
         restartButton.setDisable(true);  // Disable restart button until game ends
+        //Starting connection to the server again and displaying turn signal
+        initialize();
+        statusText.setText("Waiting for opponent...");
+
     }
 
 
