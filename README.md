@@ -22,47 +22,49 @@ Die Implementierung muss alle der folgenden Anforderungen erfüllen, um positiv 
 zu werden:
 
 ● Der Code ist mit JavaDoc-Kommentaren versehen, um eine einfache Wartung und
-Erweiterung des Codes zu ermöglichen.
+Erweiterung des Codes zu ermöglichen. (Check)
 
 ● Eine Readme.md-Datei wird bereitgestellt, die einen guten Überblick über das Projekt
-gibt, einschließlich Anweisungen zum Ausführen des Spiels.
+gibt, einschließlich Anweisungen zum Ausführen des Spiels. (Check)
 
 ● Die Klassen verwenden Vererbung, Overriding von Methoden und haben mehrere
-Konstruktoren.
+Konstruktoren. (Check)
 
 ● Die Zugriffsrechte für Klassen, Methoden und Properties (Variablen) wurden sinnvoll
-gewählt.
+gewählt. (Check)
 
 ● Es wurde ein durchdachtes Exception-Handling implementiert, um unerwartete Fehler
-zu vermeiden.
+zu vermeiden. (Check)
 
 ● Multithreading wird verwendet, um z.B. zeitintensive Berechnungen NICHT im GUIThread durchzuführen.
+(Check)
 
 ● Die GUI wurde durchdacht und aufgeräumt gestaltet, um eine intuitive Bedienung zu
-ermöglichen.
+ermöglichen. (Check)
 
-● Die GUI wurde mit JavaFX umgesetzt.
+● Die GUI wurde mit JavaFX umgesetzt. (Check)
 Zusätzlich erfüllt die Implementierung die spezifischen Anforderungen für ein Tic-Tac-ToeSpiel:
 
+
 ● Das Spiel verfügt über eine einfache Benutzeroberfläche, auf der das Spielfeld und
-die Symbole angezeigt werden.
+die Symbole angezeigt werden. (Check)
 
 ● Das Spiel erkennt, wenn ein/e Spieler/In gewonnen hat, und zeigt eine
-entsprechende Meldung an.
+entsprechende Meldung an. (Check)
 
-● Das Spiel erkennt, wenn es zu einem Unentschieden gekommen ist.
+● Das Spiel erkennt, wenn es zu einem Unentschieden gekommen ist. (Check)
 
 ● Das Spiel ermöglicht es dem/der Benutzer/in, das Spiel neu zu starten oder zu
-beenden.
+beenden. (Check)
 
 ## Project specific requirements:
 
 Must haves (Genügend)
-- Benutzeroberfläche für ein Tic-Tac-Toe Spiel
-- GewinnerInermittlung
-- Neustart
-- 2 SpielerInnen möglich über das Netzwerk
-- Konfiguration der Verbindung (Mitspieler IP-Adresse) über ein File
+- Benutzeroberfläche für ein Tic-Tac-Toe Spiel (Check)
+- GewinnerInermittlung (Check)
+- Neustart (Check)
+- 2 SpielerInnen möglich über das Netzwerk (Check)
+- Konfiguration der Verbindung (Mitspieler IP-Adresse) über ein File (Check)
   
 Should haves (Befriedigend)
 - Berechnen und Anzeige von Spielstatistiken
@@ -72,7 +74,7 @@ Should haves (Befriedigend)
   - Diese Einstellung wird in einer Datei abgespeichert
   
 Nice to haves (Gut)
-- Animationen für das Setzen von X und O, z.B. FadeIn
+- Animationen für das Setzen von X und O, z.B. FadeIn (Check)
 - Auswahl eines benutzerdefinierten Hintergrundbilds für das Tic-Tac-Toe Spielfeld
   über eine Dateiauswahl
   
