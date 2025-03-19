@@ -10,6 +10,8 @@ import javafx.stage.Stage;
  * It extends {@link Application} and loads the game's UI from an FXML file.
  *
  * @author Anastasija Canic
+ * @version 2.0
+ * @since 19/03/2025
  */
 public class Client extends Application {
 

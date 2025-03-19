@@ -1,24 +1,21 @@
 package client;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+/**
+ * The {@code Client1} class serves as the entry point for launching the Tic Tac Toe application.
+ * It extends {@link Client} and calls the {@code launch} method to start the JavaFX application.
+ *
+ * @author Anastasija Canic
+ * @version 2.0
+ * @since 19/03/2025
+ */
+public class Client1 extends Client {
 
-import java.io.IOException;
-
-public class Client1 extends Application {
-
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/game_view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 400);
-        stage.setTitle("Tic-Tac-Toe");
-        stage.setScene(scene);
-        stage.show();
-    }
-
+    /**
+     * The main method that launches the JavaFX application.
+     *
+     * @param args Command-line arguments passed to the application.
+     */
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
