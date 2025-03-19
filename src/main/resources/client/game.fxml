@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClientController"
+          alignment="center" hgap="10" vgap="10">
+    <Button fx:id="button00" onAction="#handleClick" prefWidth="100" prefHeight="100" />
+    <Button fx:id="button01" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.columnIndex="1"/>
+    <Button fx:id="button02" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.columnIndex="2"/>
+    <Button fx:id="button10" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="1"/>
+    <Button fx:id="button11" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Button fx:id="button12" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+    <Button fx:id="button20" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="2"/>
+    <Button fx:id="button21" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <Button fx:id="button22" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+    <Text fx:id="statusText" text="Waiting for your turn..." GridPane.rowIndex="3" GridPane.columnSpan="3"/>
+    <Button fx:id="restartButton" text="Restart" onAction="#handleRestart" GridPane.rowIndex="4" />
+    <Button fx:id="quitButton" text="Quit" onAction="#handleQuit" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+</GridPane>
