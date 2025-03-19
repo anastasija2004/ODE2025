@@ -147,6 +147,7 @@ public class ClientController {
      *
      * @param move The move received from the server in the format "row col symbol".
      */
+
     private void updateBoard(String move) {
         String[] parts = move.split(" ");
         int row = Integer.parseInt(parts[0]);
@@ -155,7 +156,8 @@ public class ClientController {
 
         Button button = getButton(row, col);
         if (button != null) {
-            button.setText(symbol);  // Display X or O on the button
+            // Use the fade-in animation instead of directly setting the text
+            applyFadeAnimation(button, symbol);  // Display X or O with fade effect
             button.setDisable(true);  // Disable the button after the move
         }
 
@@ -163,12 +165,14 @@ public class ClientController {
         statusText.setText("Waiting for opponent...");
     }
 
+
     /**
      * Handles a button click event during the game.
      * Sends the move to the server if it's the player's turn.
      *
      * @param event The button click event.
      */
+
     @FXML
     private void handleClick(javafx.event.ActionEvent event) {
         if (!isMyTurn) return;  // Prevent clicks when it's not the player's turn.
@@ -179,10 +183,13 @@ public class ClientController {
 
         if (clickedButton.getText().isEmpty()) {
             out.println(row + " " + col);
-            clickedButton.setText(isMyTurn ? "X" : "O");  // Set X or O here
-            clickedButton.setDisable(true);
+            // Set X or O here and apply the fade-in effect
+            String symbol = isMyTurn ? "X" : "O";
+            applyFadeAnimation(clickedButton, symbol);  // Apply fade-in animation
+            clickedButton.setDisable(true);  // Disable the button after the move
         }
     }
+
 
     /**
      * Handles the restart button click event and sends a reset request to the server.
@@ -294,10 +301,12 @@ public class ClientController {
      */
     private void applyFadeAnimation(Button button, String text) {
         button.setText(text);
-        button.setOpacity(0); // Make button invisible
+        button.setOpacity(0); // Start with the button invisible
         FadeTransition fadeIn = new FadeTransition(Duration.millis(500), button);
-        fadeIn.setFromValue(0);
-        fadeIn.setToValue(1);
+        fadeIn.setFromValue(0); // Start with opacity 0
+        fadeIn.setToValue(1); // Fade in to opacity 1
         fadeIn.play();
     }
+
+
 }
