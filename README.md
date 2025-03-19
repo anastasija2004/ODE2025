@@ -1,6 +1,21 @@
 # ODE2025
 This is my repo for ODE FH Technikum
 
+## Setup Instructions
+Install Java Development Kit (JDK): Ensure you have JDK 8 or higher installed on your machine.
+
+JavaFX: Download and set up JavaFX if not already bundled with your JDK.
+
+Build: The project uses JavaFX for GUI. You can build and run the project using an IDE like IntelliJ IDEA or Eclipse that supports JavaFX, or you can build it manually via the command line with Maven or Gradle.
+
+Run the Server: Before launching the clients, start the server. You can run the server by executing Server.java as a Java application. The server listens for incoming player connections on port 12345.
+
+Run the Clients: After the server is running, launch two separate client instances:
+
+Client1: This acts as Player 1.
+Client2: This acts as Player 2.
+Both clients will connect to the server, and they can start playing after the connection is established.
+
 ## General Requirements:
 
 Die Implementierung muss alle der folgenden Anforderungen erfüllen, um positiv bewertet
@@ -67,3 +82,5 @@ Overkill (Sehr gut)
     Person wissen, sondern können sich zu einer Lobby-IP verbinden, um so
     Gegenspieler zu finden
 - Spielen gegen KI
+
+

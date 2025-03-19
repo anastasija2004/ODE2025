@@ -28,6 +28,9 @@ public class ClientController {
     private PrintWriter out;
     private BufferedReader in;
     private boolean isMyTurn = false;
+    private String serverAddress;
+    private int serverPort;
+
     private void enableRestartButton() {
         restartButton.setDisable(false);
     }
@@ -39,16 +42,47 @@ public class ClientController {
      */
     @FXML
     public void initialize() {
+        // Load server configuration from config.txt
+        loadServerConfig();
+        //print config buffer in terminal to debug
+        System.out.println(serverAddress + " " + serverPort);
         try {
-            // Connects to the server at localhost on port 12345
-            Socket socket = new Socket("localhost", 12345);
+            // Connects to the server using the loaded configuration
+            Socket socket = new Socket(serverAddress, serverPort);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
             new Thread(this::listenToServer).start();
         } catch (IOException e) {
             statusText.setText("Error: Cannot connect to server.");
+            System.err.println("Connection error: " + e.getMessage());
             disableAllButtons();
+        }
+    }
+
+    /**
+     * Loads the server address and port from the config.txt file.
+     */
+    private void loadServerConfig() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/client/config.txt"))) {
+            String line = reader.readLine();
+            if (line != null && !line.isEmpty()) {
+                String[] parts = line.split(":");
+                if (parts.length == 2) {
+                    serverAddress = parts[0].trim();
+                    serverPort = Integer.parseInt(parts[1].trim());
+                    System.out.println("Loaded config: " + serverAddress + " " + serverPort);
+                } else {
+                    statusText.setText("Error: Configuration format is incorrect.");
+                    disableAllButtons();
+                }
+            } else {
+                statusText.setText("Error: Configuration file is empty or missing.");
+                disableAllButtons();
+            }
+        } catch (IOException | NumberFormatException e) {
+            statusText.setText("Error: Unable to read or parse the configuration file.");
+            disableAllButtons();
+            System.err.println("Error reading config file: " + e.getMessage());
         }
     }
 
