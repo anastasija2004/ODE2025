@@ -4,14 +4,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class GameServerTest {
-    private GameServer server;
+    private Server server;
 
     @BeforeEach
     void setUp() {
-        server = new GameServer();
+        server = new Server();
     }
 
     @AfterEach

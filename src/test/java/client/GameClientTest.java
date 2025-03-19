@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,7 +36,7 @@ class GameClientTest {
     @Test
     void testClientConnectsToServer() {
         // Act
-        GameClient client = new GameClient();
+        Client client = new Client();
 
         // Assert
         assertNotNull(client, "Client instance should not be null.");
@@ -49,6 +48,6 @@ class GameClientTest {
         mockServerSocket.close(); // Force server to be unavailable
 
         // Act & Assert
-        assertDoesNotThrow(() -> new GameClient(), "Client should handle connection failure without throwing an exception.");
+        assertDoesNotThrow(() -> new Client(), "Client should handle connection failure without throwing an exception.");
     }
 }
