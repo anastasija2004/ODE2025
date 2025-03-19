@@ -28,6 +28,10 @@ public class ClientController {
     private PrintWriter out;
     private BufferedReader in;
     private boolean isMyTurn = false;
+    private void enableRestartButton() {
+        restartButton.setDisable(false);
+    }
+
 
     /**
      * Initializes the client by establishing a connection to the server
@@ -78,10 +82,17 @@ public class ClientController {
             case "WIN":
                 statusText.setText("You win!");
                 disableAllButtons();
+                enableRestartButton();
                 break;
             case "DRAW":
                 statusText.setText("It's a draw!");
                 disableAllButtons();
+                enableRestartButton();
+                break;
+            case "LOSE":
+                statusText.setText("You lose!");
+                disableAllButtons();
+                enableRestartButton();
                 break;
             case "RESET":
                 resetUI();
@@ -89,11 +100,13 @@ public class ClientController {
             case "QUIT":
                 statusText.setText("Opponent quit the game.");
                 disableAllButtons();
+                enableRestartButton();
                 break;
             default:
                 updateBoard(message);
         }
     }
+
 
     /**
      * Updates the board based on the received move.
@@ -142,7 +155,9 @@ public class ClientController {
      */
     @FXML
     private void handleRestart() {
-        out.println("RESET");
+        out.println("RESET");  // Notify server to reset the game
+        resetUI();  // Reset the UI on the client side
+        restartButton.setDisable(true);  // Disable the restart button until next game ends
     }
 
     /**
@@ -165,7 +180,9 @@ public class ClientController {
             btn.setDisable(false);
         }
         statusText.setText("New game started!");
+        restartButton.setDisable(true);  // Disable restart button until game ends
     }
+
 
     /**
      * Disables all board buttons, preventing further moves.

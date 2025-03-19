@@ -13,7 +13,8 @@
     <Button fx:id="button20" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="2"/>
     <Button fx:id="button21" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
     <Button fx:id="button22" onAction="#handleClick" prefWidth="100" prefHeight="100" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
-    <Text fx:id="statusText" text="Waiting for your turn..." GridPane.rowIndex="3" GridPane.columnSpan="3"/>
-    <Button fx:id="restartButton" text="Restart" onAction="#handleRestart" GridPane.rowIndex="4" />
+    <Text fx:id="statusText" text="Waiting for your opponent's turn..." GridPane.rowIndex="3" GridPane.columnSpan="3"/>
+    <Button fx:id="restartButton" text="Restart" onAction="#handleRestart" GridPane.rowIndex="4" disable="true"/>
     <Button fx:id="quitButton" text="Quit" onAction="#handleQuit" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
 </GridPane>

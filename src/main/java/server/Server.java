@@ -58,7 +58,13 @@ public class Server {
                 if (move == null || move.equals("QUIT")) {
                     out1.println("QUIT");
                     out2.println("QUIT");
-                    break;
+                    //cut the connection to the IP
+                    player1Socket.close();
+                    player2Socket.close();
+                    //Make sure to close the server socket
+                    serverSocket.close();
+                    //going to start back at the beginning of the server entry point
+                    startServer();
                 }
 
                 if (!processMove(move, 'X')) {
@@ -73,13 +79,25 @@ public class Server {
                 if (checkWin('X')) {
                     out1.println("WIN");
                     out2.println("LOSE");
-                    break;
+                    //cut the connection to the IP
+                    player1Socket.close();
+                    player2Socket.close();
+                    //Make sure to close the server socket
+                    serverSocket.close();
+                    //going to start back at the beginning of the server entry point
+                    startServer();
                 }
 
                 if (isDraw()) {
                     out1.println("DRAW");
                     out2.println("DRAW");
-                    break;
+                    //cut the connection to the IP
+                    player1Socket.close();
+                    player2Socket.close();
+                    //Make sure to close the server socket
+                    serverSocket.close();
+                    //going to start back at the beginning of the server entry point
+                    startServer();
                 }
 
                 player1Turn = false;
@@ -90,12 +108,24 @@ public class Server {
                 if (move == null || move.equals("QUIT")) {
                     out1.println("QUIT");
                     out2.println("QUIT");
-                    break;
+                    //cut the connection to the IP
+                    player1Socket.close();
+                    player2Socket.close();
+                    //Make sure to close the server socket
+                    serverSocket.close();
+                    //going to start back at the beginning of the server entry point
+                    startServer();
                 }
 
                 if (!processMove(move, 'O')) {
                     out2.println("INVALID");
-                    continue;
+                    //cut the connection to the IP
+                    player1Socket.close();
+                    player2Socket.close();
+                    //Make sure to close the server socket
+                    serverSocket.close();
+                    //going to start back at the beginning of the server entry point
+                    startServer();
                 }
 
                 out1.println(move + " O");
@@ -105,13 +135,25 @@ public class Server {
                 if (checkWin('O')) {
                     out1.println("LOSE");
                     out2.println("WIN");
-                    break;
+                    //cut the connection to the IP
+                    player1Socket.close();
+                    player2Socket.close();
+                    //Make sure to close the server socket
+                    serverSocket.close();
+                    //going to start back at the beginning of the server entry point
+                    startServer();
                 }
 
                 if (isDraw()) {
                     out1.println("DRAW");
                     out2.println("DRAW");
-                    break;
+                    //cut the connection to the IP
+                    player1Socket.close();
+                    player2Socket.close();
+                    //Make sure to close the server socket
+                    serverSocket.close();
+                    //going to start back at the beginning of the server entry point
+                    startServer();
                 }
 
                 player1Turn = true;
@@ -207,4 +249,6 @@ public class Server {
         }
         return true;
     }
+
+
 }
